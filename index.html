@@ -33,13 +33,9 @@
     <circle cx="254" cy="377" r="4.5"/>
   </g>
   <g transform="translate(200,202)">
-    <!-- G ring, opening at right; terminals soft -->
     <path d="M 70,-52 A 92,92 0 1 0 78,52" stroke="#1C2024" stroke-width="24" fill="none" stroke-linecap="round"/>
-    <!-- Horizontal steel beam: the bar, meeting the ring's inner edge -->
     <path d="M 84,12 L 28,12" stroke="#1C2024" stroke-width="24" fill="none" stroke-linecap="round"/>
-    <!-- Vertical support beam -->
     <path d="M 56,-18 L 56,42" stroke="#1C2024" stroke-width="15" fill="none" stroke-linecap="round"/>
-    <!-- Central rivet -->
     <circle cx="56" cy="12" r="14" fill="#FDFCFA"/>
     <circle cx="56" cy="12" r="14" fill="none" stroke="#1C2024" stroke-width="3.5"/>
     <circle cx="56" cy="12" r="4.5" fill="#1C2024"/>
@@ -60,19 +56,15 @@
     <path d="M 56,-18 L 56,42" stroke="url(#cuSeal)" stroke-width="15" fill="none" stroke-linecap="round"/>
     <circle cx="56" cy="12" r="14" fill="#1C2024"/><circle cx="56" cy="12" r="14" fill="none" stroke="url(#cuSeal)" stroke-width="3.5"/><circle cx="56" cy="12" r="4.5" fill="url(#cuSeal)"/>
   </g></symbol>
-    <symbol id="chop" viewBox="0 0 400 400"><!-- Square chop frame -->
-  <rect x="24" y="24" width="352" height="352" rx="10" stroke="#1C2024" stroke-width="7" fill="none"/>
-  <!-- 2x2 grid DNA: faint construction lines -->
+    <symbol id="chop" viewBox="0 0 400 400"><rect x="24" y="24" width="352" height="352" rx="10" stroke="#1C2024" stroke-width="7" fill="none"/>
   <line x1="200" y1="40" x2="200" y2="360" stroke="#1C2024" stroke-width="1.5" opacity="0.28"/>
   <line x1="40" y1="200" x2="360" y2="200" stroke="#1C2024" stroke-width="1.5" opacity="0.28"/>
-  <!-- Precision corner ticks (instrument scale) -->
   <g stroke="#1C2024" stroke-width="3" stroke-linecap="round">
     <path d="M 48,72 L 72,72 M 72,48 L 72,72"/>
     <path d="M 352,72 L 328,72 M 328,48 L 328,72"/>
     <path d="M 48,328 L 72,328 M 72,352 L 72,328"/>
     <path d="M 352,328 L 328,328 M 328,352 L 328,328"/>
   </g>
-  <!-- The G, grid-aligned, same iron core -->
   <g transform="translate(200,200)">
     <path d="M 64,-50 A 86,86 0 1 0 72,50" stroke="#1C2024" stroke-width="22" fill="none" stroke-linecap="round"/>
     <path d="M 80,10 L 26,10" stroke="#1C2024" stroke-width="22" fill="none" stroke-linecap="round"/>
@@ -115,6 +107,19 @@
     <path d="M 40,-48 L 40,88" stroke="#1C2024" stroke-width="34" fill="none" stroke-linecap="round"/>
     <circle cx="40" cy="24" r="34" fill="#FDFCFA"/>
     <circle cx="40" cy="24" r="34" fill="none" stroke="#1C2024" stroke-width="8"/>
+  </g></symbol>
+    <symbol id="seal-foil" viewBox="0 0 400 400"><defs>
+    <path id="tFoil" d="M 200,200 m -148,0 a 148,148 0 1 1 296,0" />
+  </defs>
+  <circle cx="200" cy="200" r="190" stroke="#A8602F" stroke-width="2" fill="none"/>
+  <circle cx="200" cy="200" r="178" stroke="#A8602F" stroke-width="6" fill="none"/>
+  <text font-family="'Spectral',Georgia,serif" font-size="29" letter-spacing="9" fill="#A8602F" text-anchor="middle"><textPath href="#tFoil" startOffset="50%">GONG TIEJING</textPath></text>
+  <g fill="#A8602F"><circle cx="200" cy="384" r="4.5"/><circle cx="146" cy="377" r="4.5"/><circle cx="254" cy="377" r="4.5"/></g>
+  <g transform="translate(200,202)">
+    <path d="M 70,-52 A 92,92 0 1 0 78,52" stroke="#A8602F" stroke-width="24" fill="none" stroke-linecap="round"/>
+    <path d="M 84,12 L 28,12" stroke="#A8602F" stroke-width="24" fill="none" stroke-linecap="round"/>
+    <path d="M 56,-18 L 56,42" stroke="#A8602F" stroke-width="15" fill="none" stroke-linecap="round"/>
+    <circle cx="56" cy="12" r="14" fill="none" stroke="#A8602F" stroke-width="3.5"/><circle cx="56" cy="12" r="4.5" fill="#A8602F"/>
   </g></symbol>
   </defs>
 </svg>
@@ -387,8 +392,9 @@
 <section class="sec" id="assets">
   <div class="sec-head">
     <span class="sec-no">07</span><h2>Brand Assets</h2>
-    <span class="sec-en">DOWNLOADABLE SVG</span>
+    <span class="sec-en">DOWNLOADABLE SVG · PRODUCTION-READY</span>
   </div>
+  <p class="sec-note">Screen files use copper as a gradient. The three files below are flat, single-color vectors with no gradients or transparency — built for foil-stamp dies, laser engraving, embroidery digitizing, and one-color offset printing. Hand these directly to a manufacturer.</p>
   <div class="asset-grid">
     <a class="asset" href="assets/mark-primary-seal.svg" download>
       <svg viewBox="0 0 400 400" width="40" height="40"><use href="#seal-graphite"/></svg>
@@ -405,6 +411,21 @@
     <a class="asset" href="assets/favicon.svg" download>
       <span class="fav-tile sm"><svg viewBox="0 0 64 64" width="22" height="22" style="color:#FDFCFA"><use href="#icon"/></svg></span>
       <b>Favicon</b><code>favicon.svg</code>
+    </a>
+    <a class="asset mfg" href="assets/mark-primary-seal-foil.svg" download>
+      <svg viewBox="0 0 400 400" width="40" height="40" style="background:#1C2024;border-radius:50%"><use href="#seal-foil"/></svg>
+      <b>Primary Seal — Foil Die</b><code>mark-primary-seal-foil.svg</code>
+      <span class="asset-tag">Solid #A8602F · no gradient</span>
+    </a>
+    <a class="asset light mfg" href="assets/mark-primary-seal-outline.svg" download>
+      <svg viewBox="0 0 400 400" width="40" height="40" style="color:#1C2024"><use href="#seal-graphite"/></svg>
+      <b>Primary Seal — Engrave Outline</b><code>mark-primary-seal-outline.svg</code>
+      <span class="asset-tag">Pure black · 1-color</span>
+    </a>
+    <a class="asset light mfg" href="assets/mark-secondary-chop-mono.svg" download>
+      <svg viewBox="0 0 400 400" width="40" height="40" style="color:#1C2024"><use href="#chop"/></svg>
+      <b>Secondary Chop — 1-Color</b><code>mark-secondary-chop-mono.svg</code>
+      <span class="asset-tag">Pure black · 1-color</span>
     </a>
     <a class="asset" href="assets/avatar/avatar-graphite.svg" download>
       <svg viewBox="0 0 512 512" width="40" height="40" style="border-radius:50%"><use href="#avatar-graphite"/></svg>
@@ -426,6 +447,20 @@
       <span class="lk-word" style="font-size:13px">▭</span>
       <b>Business Card</b><code>extensions/business-card.html</code>
     </a>
+  </div>
+
+  <!-- production specs -->
+  <h3 class="app-sub light">Production Specification</h3>
+  <div class="spec-table">
+    <div class="spec-row"><span>Artboard / viewBox</span><span>400 × 400 (seal, chop) · 64 × 64 (favicon) · 512 × 512 (avatar) — all square, vector, infinitely scalable</span></div>
+    <div class="spec-row"><span>Primary seal — line weights</span><span>Outer rings 2px / 6px · ring text 29px Spectral · G stroke 24px · support beam 15px · rivet ring 3.5px — all at 400px artboard scale</span></div>
+    <div class="spec-row"><span>Secondary chop — line weights</span><span>Frame 7px, 10px corner radius · grid lines 1.5px @ 28% opacity · corner ticks 3px · G stroke 22px · rivet ring 3.2px</span></div>
+    <div class="spec-row"><span>Graphite — print match</span><span><code>#1C2024</code> · CMYK ≈ 75 / 60 / 55 / 65 · Pantone Black 6 C (closest)</span></div>
+    <div class="spec-row"><span>Copper — print / foil match</span><span><code>#A8602F</code> · CMYK ≈ 25 / 60 / 95 / 15 · Pantone 7586 C · for foil stamping specify <strong>copper foil</strong>, not metallic gold</span></div>
+    <div class="spec-row"><span>Minimum reproduction size</span><span>Primary seal: 12&nbsp;mm diameter (engraved ring text is the limiting element) · Secondary chop: 10&nbsp;mm · Favicon mark: 4&nbsp;mm</span></div>
+    <div class="spec-row"><span>Foil stamping</span><span>Use <code>mark-primary-seal-foil.svg</code> — flat copper, no gradient, no transparency. Convert strokes to outlines before sending to the die-maker; gradients will not stamp.</span></div>
+    <div class="spec-row"><span>Engraving / laser / embroidery</span><span>Use the <code>-outline</code> / <code>-mono</code> files — single pure-black fill, no opacity layers except the chop's 28% grid lines (flatten or omit those for engraving).</span></div>
+    <div class="spec-row"><span>Embroidery digitizing</span><span>Recommend running stitch for the 1.5px grid lines, satin stitch ≥2&nbsp;mm for the G strokes and rings. Minimum hoop size 50&nbsp;mm for full seal.</span></div>
   </div>
 </section>
 
