@@ -4,138 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gong Tiejing — Personal Visual Identity</title>
-<style>
-  :root{
-    --graphite:#1C2024;
-    --graphite-2:#2A2F35;
-    --silver:#9AA3AB;
-    --silver-cool:#C2C9CF;
-    --copper:#A8602F;
-    --copper-lo:#8A4A23;
-    --copper-hi:#C77B45;
-    --gold:#B08D3E;
-    --paper:#FDFCFA;
-    --paper-2:#F3F1ED;
-    --hair:#E2DFDA;
-    --ink:#1C2024;
-    --serif:'Spectral','Georgia',serif;
-    --sans:'Inter','Helvetica Neue',Arial,sans-serif;
-    --mono:'IBM Plex Mono','SFMono-Regular',Consolas,monospace;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{background:var(--paper);color:var(--ink);font-family:var(--sans);
-    line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-
-  /* ---- type scale ---- */
-  h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:.01em;line-height:1.15}
-  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;
-    color:var(--silver);margin-bottom:1.2rem}
-
-  .wrap{max-width:1080px;margin:0 auto;padding:0 32px}
-
-  /* ---- masthead ---- */
-  header{background:var(--graphite);color:var(--paper);padding:96px 0 88px;position:relative}
-  header::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
-    background:linear-gradient(90deg,transparent,var(--copper),transparent)}
-  .mast{display:flex;align-items:center;gap:54px;flex-wrap:wrap}
-  .mast-seal{width:188px;height:188px;flex-shrink:0}
-  .mast h1{font-size:3.1rem;color:var(--paper)}
-  .mast .sub{font-family:var(--mono);font-size:.8rem;letter-spacing:.22em;
-    color:var(--copper-hi);text-transform:uppercase;margin-top:14px}
-  .mast .lede{color:var(--silver-cool);max-width:38ch;margin-top:20px;font-size:1.02rem}
-
-  /* ---- sections ---- */
-  section{padding:78px 0;border-bottom:1px solid var(--hair)}
-  section h2{font-size:2rem;margin-bottom:8px}
-  .sec-note{color:#6C7278;max-width:60ch;margin-bottom:42px}
-
-  /* ---- mark gallery ---- */
-  .marks{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-  .mark-card{border:1px solid var(--hair);border-radius:6px;overflow:hidden;background:var(--paper)}
-  .mark-stage{aspect-ratio:1;display:flex;align-items:center;justify-content:center;padding:34px}
-  .mark-stage.dark{background:var(--graphite)}
-  .mark-stage svg{width:100%;height:100%}
-  .mark-meta{border-top:1px solid var(--hair);padding:16px 20px}
-  .mark-meta .nm{font-family:var(--serif);font-size:1.05rem}
-  .mark-meta .role{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;
-    color:var(--silver);text-transform:uppercase;margin-top:3px}
-
-  /* ---- story / iron ---- */
-  .story{display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:center}
-  .story-seal{width:100%;max-width:300px;margin:0 auto;display:block}
-  .story p{margin-bottom:18px;color:#3A4046}
-  .story .han{font-family:var(--serif);font-size:1.3rem;color:var(--copper-lo)}
-
-  /* ---- color ---- */
-  .palette{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-  .sw{border:1px solid var(--hair);border-radius:6px;overflow:hidden}
-  .sw .chip{height:104px}
-  .sw .info{padding:14px 16px}
-  .sw .info .nm{font-size:.9rem;font-weight:600}
-  .sw .info .hx{font-family:var(--mono);font-size:.74rem;color:var(--silver);margin-top:3px}
-  .sw .info .use{font-size:.74rem;color:#6C7278;margin-top:8px;line-height:1.4}
-
-  /* ---- type specimen ---- */
-  .type-row{display:grid;grid-template-columns:120px 1fr;gap:28px;padding:26px 0;
-    border-top:1px solid var(--hair);align-items:baseline}
-  .type-row:first-of-type{border-top:none}
-  .type-label{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;
-    text-transform:uppercase;color:var(--silver)}
-  .sp-serif{font-family:var(--serif);font-size:2.2rem;font-weight:500}
-  .sp-sans{font-family:var(--sans);font-size:1.4rem}
-  .sp-mono{font-family:var(--mono);font-size:1rem;letter-spacing:.04em}
-
-  /* ---- lockups ---- */
-  .lockups{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-  .lock{border:1px solid var(--hair);border-radius:6px;padding:38px;display:flex;
-    align-items:center;gap:24px}
-  .lock.dark{background:var(--graphite);border-color:var(--graphite)}
-  .lock svg{width:74px;height:74px;flex-shrink:0}
-  .lock .nm{font-family:var(--serif);font-size:1.5rem;line-height:1.1}
-  .lock .nm small{display:block;font-family:var(--mono);font-size:.64rem;
-    letter-spacing:.2em;text-transform:uppercase;margin-top:8px}
-  .lock.light .nm{color:var(--ink)} .lock.light .nm small{color:var(--silver)}
-  .lock.dark .nm{color:var(--paper)} .lock.dark .nm small{color:var(--copper-hi)}
-
-  /* ---- rules ---- */
-  .rules{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-  .rule{border:1px solid var(--hair);border-radius:6px;padding:22px 24px}
-  .rule .h{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;
-    margin-bottom:10px}
-  .rule.do .h{color:#2E7D52} .rule.dont .h{color:#A83A2E}
-  .rule ul{list-style:none} .rule li{padding-left:18px;position:relative;font-size:.92rem;
-    color:#3A4046;margin-bottom:7px}
-  .rule li::before{position:absolute;left:0;top:0}
-  .rule.do li::before{content:"+";color:#2E7D52;font-weight:700}
-  .rule.dont li::before{content:"\00d7";color:#A83A2E;font-weight:700}
-
-  footer{background:var(--graphite);color:var(--silver);padding:54px 0;font-size:.82rem}
-  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
-  footer .mono{font-family:var(--mono);letter-spacing:.08em}
-  footer a{color:var(--copper-hi);text-decoration:none}
-
-  @media(max-width:820px){
-    .marks{grid-template-columns:1fr 1fr}
-    .palette{grid-template-columns:1fr 1fr}
-    .story,.lockups,.rules{grid-template-columns:1fr}
-    .mast h1{font-size:2.4rem}
-    .type-row{grid-template-columns:1fr;gap:8px}
-  }
-  @media(max-width:480px){
-    .wrap{padding:0 20px}.marks{grid-template-columns:1fr}.palette{grid-template-columns:1fr}
-    .mast{gap:30px}.mast-seal{width:140px;height:140px}
-  }
-  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-</style>
+<meta name="description" content="Gong Tiejing — personal visual identity system. A modern steel-seal mark for an engineer and founder: graphite, cool silver, copper.">
+<meta property="og:title" content="Gong Tiejing — Personal Visual Identity">
+<meta property="og:description" content="A modern steel-seal identity. Precise, composed, made to be carried.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="css/gong-vi.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header>
-  <div class="wrap mast">
-    <div class="mast-seal" aria-hidden="true"><svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gong Tiejing primary seal mark">
-  <title>Gong Tiejing — Primary Seal</title>
+<!-- ============ SVG SPRITE ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
+    <symbol id="seal-graphite" viewBox="0 0 400 400"><defs>
     <path id="gtSealTextTop" d="M 200,200 m -148,0 a 148,148 0 1 1 296,0" />
   </defs>
   <circle cx="200" cy="200" r="190" stroke="#1C2024" stroke-width="2" fill="none"/>
@@ -159,57 +43,24 @@
     <circle cx="56" cy="12" r="14" fill="#FDFCFA"/>
     <circle cx="56" cy="12" r="14" fill="none" stroke="#1C2024" stroke-width="3.5"/>
     <circle cx="56" cy="12" r="4.5" fill="#1C2024"/>
-  </g>
-</svg></div>
-    <div>
-      <h1>Gong Tiejing</h1>
-      <div class="sub">Personal Visual Identity · v1.0</div>
-      <p class="lede">A modern steel-seal identity for an engineer who builds, and a founder who decides. Precise, composed, and made to be carried — from a 16-pixel favicon to a pressed-copper chop.</p>
-    </div>
-  </div>
-</header>
-
-<section id="marks">
-  <div class="wrap">
-    <div class="eyebrow">01 · The Marks</div>
-    <h2>One identity, two seals</h2>
-    <p class="sec-note">A circular seal carries the formal, public voice — signatures, favicons, anything official. A square chop carries the technical voice — engineering documents, drawings, build artifacts. Both are cut from the same letter and the same iron core.</p>
-    <div class="marks">
-      <div class="mark-card">
-        <div class="mark-stage"><svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gong Tiejing primary seal mark">
-  <title>Gong Tiejing — Primary Seal</title>
-  <defs>
-    <path id="gtSealTextTop" d="M 200,200 m -148,0 a 148,148 0 1 1 296,0" />
+  </g></symbol>
+    <symbol id="seal-copper" viewBox="0 0 400 400"><defs>
+    <linearGradient id="cuSeal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#C77B45"/><stop offset="0.5" stop-color="#A8602F"/><stop offset="1" stop-color="#8A4A23"/>
+    </linearGradient>
+    <path id="tCu" d="M 200,200 m -148,0 a 148,148 0 1 1 296,0" />
   </defs>
-  <circle cx="200" cy="200" r="190" stroke="#1C2024" stroke-width="2" fill="none"/>
-  <circle cx="200" cy="200" r="178" stroke="#1C2024" stroke-width="6" fill="none"/>
-  <text font-family="'Spectral','Georgia',serif" font-size="29" letter-spacing="9" fill="#1C2024" text-anchor="middle">
-    <textPath href="#gtSealTextTop" startOffset="50%">GONG TIEJING</textPath>
-  </text>
-  <g fill="#1C2024">
-    <circle cx="200" cy="384" r="4.5"/>
-    <circle cx="146" cy="377" r="4.5"/>
-    <circle cx="254" cy="377" r="4.5"/>
-  </g>
+  <circle cx="200" cy="200" r="190" stroke="url(#cuSeal)" stroke-width="2" fill="none"/>
+  <circle cx="200" cy="200" r="178" stroke="url(#cuSeal)" stroke-width="6" fill="none"/>
+  <text font-family="'Spectral',serif" font-size="29" letter-spacing="9" fill="url(#cuSeal)" text-anchor="middle"><textPath href="#tCu" startOffset="50%">GONG TIEJING</textPath></text>
+  <g fill="url(#cuSeal)"><circle cx="200" cy="384" r="4.5"/><circle cx="146" cy="377" r="4.5"/><circle cx="254" cy="377" r="4.5"/></g>
   <g transform="translate(200,202)">
-    <!-- G ring, opening at right; terminals soft -->
-    <path d="M 70,-52 A 92,92 0 1 0 78,52" stroke="#1C2024" stroke-width="24" fill="none" stroke-linecap="round"/>
-    <!-- Horizontal steel beam: the bar, meeting the ring's inner edge -->
-    <path d="M 84,12 L 28,12" stroke="#1C2024" stroke-width="24" fill="none" stroke-linecap="round"/>
-    <!-- Vertical support beam -->
-    <path d="M 56,-18 L 56,42" stroke="#1C2024" stroke-width="15" fill="none" stroke-linecap="round"/>
-    <!-- Central rivet -->
-    <circle cx="56" cy="12" r="14" fill="#FDFCFA"/>
-    <circle cx="56" cy="12" r="14" fill="none" stroke="#1C2024" stroke-width="3.5"/>
-    <circle cx="56" cy="12" r="4.5" fill="#1C2024"/>
-  </g>
-</svg></div>
-        <div class="mark-meta"><div class="nm">Primary Seal</div><div class="role">Circular · formal · favicon</div></div>
-      </div>
-      <div class="mark-card">
-        <div class="mark-stage"><svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gong Tiejing secondary chop mark">
-  <title>Gong Tiejing — Secondary Chop</title>
-  <!-- Square chop frame -->
+    <path d="M 70,-52 A 92,92 0 1 0 78,52" stroke="url(#cuSeal)" stroke-width="24" fill="none" stroke-linecap="round"/>
+    <path d="M 84,12 L 28,12" stroke="url(#cuSeal)" stroke-width="24" fill="none" stroke-linecap="round"/>
+    <path d="M 56,-18 L 56,42" stroke="url(#cuSeal)" stroke-width="15" fill="none" stroke-linecap="round"/>
+    <circle cx="56" cy="12" r="14" fill="#1C2024"/><circle cx="56" cy="12" r="14" fill="none" stroke="url(#cuSeal)" stroke-width="3.5"/><circle cx="56" cy="12" r="4.5" fill="url(#cuSeal)"/>
+  </g></symbol>
+    <symbol id="chop" viewBox="0 0 400 400"><!-- Square chop frame -->
   <rect x="24" y="24" width="352" height="352" rx="10" stroke="#1C2024" stroke-width="7" fill="none"/>
   <!-- 2x2 grid DNA: faint construction lines -->
   <line x1="200" y1="40" x2="200" y2="360" stroke="#1C2024" stroke-width="1.5" opacity="0.28"/>
@@ -229,165 +80,367 @@
     <circle cx="52" cy="10" r="13" fill="#FDFCFA"/>
     <circle cx="52" cy="10" r="13" fill="none" stroke="#1C2024" stroke-width="3.2"/>
     <circle cx="52" cy="10" r="4" fill="#1C2024"/>
-  </g>
-</svg></div>
-        <div class="mark-meta"><div class="nm">Secondary Chop</div><div class="role">Square · technical · documents</div></div>
-      </div>
-      <div class="mark-card">
-        <div class="mark-stage dark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GT favicon">
-  <title>Gong Tiejing — Favicon</title>
-  <rect width="64" height="64" rx="13" fill="#1C2024"/>
-  <g transform="translate(32,32.5)">
-    <path d="M 11,-15 A 19,19 0 1 0 13,15" stroke="#FDFCFA" stroke-width="6.5" fill="none" stroke-linecap="round"/>
-    <path d="M 15,3 L -4,3" stroke="#FDFCFA" stroke-width="6.5" fill="none" stroke-linecap="round"/>
-    <path d="M 5,-6 L 5,11" stroke="#FDFCFA" stroke-width="4.2" fill="none" stroke-linecap="round"/>
-    <circle cx="5" cy="3" r="4.3" fill="#1C2024"/>
-    <circle cx="5" cy="3" r="4.3" fill="none" stroke="#FDFCFA" stroke-width="1.6"/>
-  </g>
-</svg></div>
-        <div class="mark-meta"><div class="nm">App / Favicon</div><div class="role">Reduced · 16px legible</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="iron">
-  <div class="wrap">
-    <div class="eyebrow">02 · The Idea</div>
-    <h2>The iron in the letter</h2>
-    <div class="story">
-      <div>
-        <p>The mark is a single letter <strong>G</strong>, built with compass geometry but finished with soft, humanist terminals — drawn, not stamped out by a machine.</p>
-        <p>Inside it sits a structural cross: a horizontal beam — the letter's own bar — meeting a vertical support, locked at the center by a single <strong>rivet</strong>. That rivet is the load-bearing point. It is where the name lives.</p>
-        <p class="han">铁 — iron, steel.<br>靖 — steady, secure, at peace.</p>
-        <p>Iron that holds steady under load. A founder's mark that can grow, in time, into a family seal. No year is engraved — the seal is meant to outlast any single date.</p>
-      </div>
-      <div><svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gong Tiejing primary seal mark">
-  <title>Gong Tiejing — Primary Seal</title>
-  <defs>
-    <path id="gtSealTextTop" d="M 200,200 m -148,0 a 148,148 0 1 1 296,0" />
+  </g></symbol>
+    <symbol id="icon" viewBox="0 0 64 64"><g transform="translate(32,32.5)">
+    <path d="M 11,-15 A 19,19 0 1 0 13,15" stroke="currentColor" stroke-width="6.5" fill="none" stroke-linecap="round"/>
+    <path d="M 15,3 L -4,3" stroke="currentColor" stroke-width="6.5" fill="none" stroke-linecap="round"/>
+    <path d="M 5,-6 L 5,11" stroke="currentColor" stroke-width="4.2" fill="none" stroke-linecap="round"/>
+    <circle cx="5" cy="3" r="3" fill="currentColor"/>
+  </g></symbol>
+    <symbol id="avatar-graphite" viewBox="0 0 512 512"><rect width="512" height="512" fill="#1C2024"/>
+  <g transform="translate(256,262)">
+    <path d="M 88,-120 A 152,152 0 1 0 104,120" stroke="#FDFCFA" stroke-width="52" fill="none" stroke-linecap="round"/>
+    <path d="M 120,24 L -32,24" stroke="#FDFCFA" stroke-width="52" fill="none" stroke-linecap="round"/>
+    <path d="M 40,-48 L 40,88" stroke="#FDFCFA" stroke-width="34" fill="none" stroke-linecap="round"/>
+    <circle cx="40" cy="24" r="34" fill="#1C2024"/>
+    <circle cx="40" cy="24" r="34" fill="none" stroke="#FDFCFA" stroke-width="8"/>
+  </g></symbol>
+    <symbol id="avatar-copper" viewBox="0 0 512 512"><defs>
+    <linearGradient id="cuAvatar" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#C77B45"/><stop offset="0.5" stop-color="#A8602F"/><stop offset="1" stop-color="#8A4A23"/>
+    </linearGradient>
   </defs>
-  <circle cx="200" cy="200" r="190" stroke="#1C2024" stroke-width="2" fill="none"/>
-  <circle cx="200" cy="200" r="178" stroke="#1C2024" stroke-width="6" fill="none"/>
-  <text font-family="'Spectral','Georgia',serif" font-size="29" letter-spacing="9" fill="#1C2024" text-anchor="middle">
-    <textPath href="#gtSealTextTop" startOffset="50%">GONG TIEJING</textPath>
-  </text>
-  <g fill="#1C2024">
-    <circle cx="200" cy="384" r="4.5"/>
-    <circle cx="146" cy="377" r="4.5"/>
-    <circle cx="254" cy="377" r="4.5"/>
-  </g>
-  <g transform="translate(200,202)">
-    <!-- G ring, opening at right; terminals soft -->
-    <path d="M 70,-52 A 92,92 0 1 0 78,52" stroke="#1C2024" stroke-width="24" fill="none" stroke-linecap="round"/>
-    <!-- Horizontal steel beam: the bar, meeting the ring's inner edge -->
-    <path d="M 84,12 L 28,12" stroke="#1C2024" stroke-width="24" fill="none" stroke-linecap="round"/>
-    <!-- Vertical support beam -->
-    <path d="M 56,-18 L 56,42" stroke="#1C2024" stroke-width="15" fill="none" stroke-linecap="round"/>
-    <!-- Central rivet -->
-    <circle cx="56" cy="12" r="14" fill="#FDFCFA"/>
-    <circle cx="56" cy="12" r="14" fill="none" stroke="#1C2024" stroke-width="3.5"/>
-    <circle cx="56" cy="12" r="4.5" fill="#1C2024"/>
-  </g>
-</svg></div>
+  <rect width="512" height="512" fill="#1C2024"/>
+  <g transform="translate(256,262)">
+    <path d="M 88,-120 A 152,152 0 1 0 104,120" stroke="url(#cuAvatar)" stroke-width="52" fill="none" stroke-linecap="round"/>
+    <path d="M 120,24 L -32,24" stroke="url(#cuAvatar)" stroke-width="52" fill="none" stroke-linecap="round"/>
+    <path d="M 40,-48 L 40,88" stroke="url(#cuAvatar)" stroke-width="34" fill="none" stroke-linecap="round"/>
+    <circle cx="40" cy="24" r="34" fill="#1C2024"/>
+    <circle cx="40" cy="24" r="34" fill="none" stroke="url(#cuAvatar)" stroke-width="8"/>
+  </g></symbol>
+    <symbol id="avatar-paper" viewBox="0 0 512 512"><rect width="512" height="512" fill="#FDFCFA"/>
+  <g transform="translate(256,262)">
+    <path d="M 88,-120 A 152,152 0 1 0 104,120" stroke="#1C2024" stroke-width="52" fill="none" stroke-linecap="round"/>
+    <path d="M 120,24 L -32,24" stroke="#1C2024" stroke-width="52" fill="none" stroke-linecap="round"/>
+    <path d="M 40,-48 L 40,88" stroke="#1C2024" stroke-width="34" fill="none" stroke-linecap="round"/>
+    <circle cx="40" cy="24" r="34" fill="#FDFCFA"/>
+    <circle cx="40" cy="24" r="34" fill="none" stroke="#1C2024" stroke-width="8"/>
+  </g></symbol>
+  </defs>
+</svg>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <a class="nav-logo" href="#top" aria-label="Gong Tiejing home">
+    <svg viewBox="0 0 64 64" width="28" height="28" aria-hidden="true"><use href="#icon"/></svg>
+    <span class="nav-word">Gong Tiejing</span>
+  </a>
+  <nav class="nav-links">
+    <a href="#identity">Identity</a>
+    <a href="#marks">Marks</a>
+    <a href="#color">Color</a>
+    <a href="#type">Type</a>
+    <a href="#lockups">Lockups</a>
+    <a href="#applications">Applications</a>
+    <a href="#assets">Assets</a>
+  </nav>
+  <span class="nav-tag">PERSONAL VI · v1.0</span>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-badge"><span class="dot"></span>PERSONAL VISUAL IDENTITY SYSTEM</div>
+    <h1 class="hero-title">Gong Tiejing</h1>
+    <p class="hero-role">Founder &amp; Systems Architect</p>
+    <p class="hero-sub">A modern steel-seal identity for an engineer who builds, and a founder who decides. One letter, one rivet, two seals — designed to be carried from a 16-pixel favicon to a pressed-copper card.</p>
+    <div class="hero-meta">
+      <div class="meta-cell"><span class="mk">SURNAME</span><span class="mv">Gong</span></div>
+      <div class="meta-cell"><span class="mk">GIVEN NAME</span><span class="mv">Tiejing</span></div>
+      <div class="meta-cell"><span class="mk">VENTURES</span><span class="mv">AGI&amp;M · EnergizeOS · ARCBOS</span></div>
+      <div class="meta-cell"><span class="mk">BASED</span><span class="mv">Vancouver, Canada</span></div>
     </div>
   </div>
-</section>
-
-<section id="color">
-  <div class="wrap">
-    <div class="eyebrow">03 · Color</div>
-    <h2>Graphite frame, copper light</h2>
-    <p class="sec-note">A cool graphite skeleton with cool silver as the working standard. Copper is the warm metal — used sparingly, reserved for pressed and printed pieces. Gold is held back further still, for the highest-ceremony physical objects only.</p>
-    <div class="palette">
-      <div class="sw"><div class="chip" style="background:#1C2024"></div><div class="info"><div class="nm">Graphite</div><div class="hx">#1C2024</div><div class="use">Primary. Marks, text, dark grounds.</div></div></div>
-      <div class="sw"><div class="chip" style="background:#9AA3AB"></div><div class="info"><div class="nm">Cool Silver</div><div class="hx">#9AA3AB</div><div class="use">Standard secondary. Rules, captions, UI.</div></div></div>
-      <div class="sw"><div class="chip" style="background:linear-gradient(135deg,#C77B45,#8A4A23)"></div><div class="info"><div class="nm">Copper</div><div class="hx">#A8602F</div><div class="use">Warm accent. Foil, press, fine detail.</div></div></div>
-      <div class="sw"><div class="chip" style="background:#B08D3E"></div><div class="info"><div class="nm">Gold — reserved</div><div class="hx">#B08D3E</div><div class="use">Highest ceremony, physical only.</div></div></div>
-      <div class="sw"><div class="chip" style="background:#FDFCFA;border-bottom:1px solid #E2DFDA"></div><div class="info"><div class="nm">Paper</div><div class="hx">#FDFCFA</div><div class="use">Light ground. Documents, web base.</div></div></div>
-      <div class="sw"><div class="chip" style="background:#2A2F35"></div><div class="info"><div class="nm">Graphite 2</div><div class="hx">#2A2F35</div><div class="use">Raised surfaces on dark.</div></div></div>
-      <div class="sw"><div class="chip" style="background:#C2C9CF"></div><div class="info"><div class="nm">Silver Cool</div><div class="hx">#C2C9CF</div><div class="use">Body text on dark grounds.</div></div></div>
-      <div class="sw"><div class="chip" style="background:#E2DFDA"></div><div class="info"><div class="nm">Hairline</div><div class="hx">#E2DFDA</div><div class="use">Dividers, borders on paper.</div></div></div>
-    </div>
+  <div class="hero-mark" aria-hidden="true">
+    <svg viewBox="0 0 400 400" width="400" height="400"><use href="#seal-copper"/></svg>
   </div>
 </section>
-
-<section id="type">
-  <div class="wrap">
-    <div class="eyebrow">04 · Typography</div>
-    <h2>Three voices</h2>
-    <p class="sec-note">A serif for the name and headlines, a neutral sans for body, a mono for data and labels. All Latin — the system is English-only by design. Substitute system serif/sans/mono where webfonts are unavailable.</p>
-    <div class="type-row"><div class="type-label">Display · Spectral</div><div class="sp-serif">Gong Tiejing — Founder &amp; Systems Architect</div></div>
-    <div class="type-row"><div class="type-label">Body · Inter</div><div class="sp-sans">Precision under load. Composed under pressure. The mark reads the same at every size.</div></div>
-    <div class="type-row"><div class="type-label">Data · IBM Plex Mono</div><div class="sp-mono">SURNAME: GONG&nbsp;&nbsp;GIVEN: TIEJING&nbsp;&nbsp;ID: GT-0001</div></div>
+<!-- ============ 01 IDENTITY / THE IRON ============ -->
+<section class="sec" id="identity">
+  <div class="sec-head">
+    <span class="sec-no">01</span><h2>The Idea</h2>
+    <span class="sec-en">THE IRON IN THE LETTER</span>
   </div>
-</section>
-
-<section id="lockups">
-  <div class="wrap">
-    <div class="eyebrow">05 · Lockups</div>
-    <h2>Mark with name</h2>
-    <p class="sec-note">The mark stands alone for icons and seals. When paired with the name, hold the spacing fixed: clear space equal to the rivet diameter on all sides. Name set in the display serif; identity line in mono.</p>
-    <div class="lockups">
-      <div class="lock light"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GT favicon">
-  <title>Gong Tiejing — Favicon</title>
-  <rect width="64" height="64" rx="13" fill="#1C2024"/>
-  <g transform="translate(32,32.5)">
-    <path d="M 11,-15 A 19,19 0 1 0 13,15" stroke="#FDFCFA" stroke-width="6.5" fill="none" stroke-linecap="round"/>
-    <path d="M 15,3 L -4,3" stroke="#FDFCFA" stroke-width="6.5" fill="none" stroke-linecap="round"/>
-    <path d="M 5,-6 L 5,11" stroke="#FDFCFA" stroke-width="4.2" fill="none" stroke-linecap="round"/>
-    <circle cx="5" cy="3" r="4.3" fill="#1C2024"/>
-    <circle cx="5" cy="3" r="4.3" fill="none" stroke="#FDFCFA" stroke-width="1.6"/>
-  </g>
-</svg><div class="nm">Gong Tiejing<small>Founder &amp; Systems Architect</small></div></div>
-      <div class="lock dark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GT favicon">
-  <title>Gong Tiejing — Favicon</title>
-  <rect width="64" height="64" rx="13" fill="#1C2024"/>
-  <g transform="translate(32,32.5)">
-    <path d="M 11,-15 A 19,19 0 1 0 13,15" stroke="#FDFCFA" stroke-width="6.5" fill="none" stroke-linecap="round"/>
-    <path d="M 15,3 L -4,3" stroke="#FDFCFA" stroke-width="6.5" fill="none" stroke-linecap="round"/>
-    <path d="M 5,-6 L 5,11" stroke="#FDFCFA" stroke-width="4.2" fill="none" stroke-linecap="round"/>
-    <circle cx="5" cy="3" r="4.3" fill="#1C2024"/>
-    <circle cx="5" cy="3" r="4.3" fill="none" stroke="#FDFCFA" stroke-width="1.6"/>
-  </g>
-</svg><div class="nm">Gong Tiejing<small>Founder &amp; Systems Architect</small></div></div>
-    </div>
-  </div>
-</section>
-
-<section id="rules">
-  <div class="wrap">
-    <div class="eyebrow">06 · Usage</div>
-    <h2>Hold the line</h2>
-    <div class="rules">
-      <div class="rule do">
-        <div class="h">Do</div>
-        <ul>
-          <li>Keep clear space ≥ one rivet diameter around the mark.</li>
-          <li>Use graphite on paper, paper on graphite — maximum contrast.</li>
-          <li>Reserve copper for pressed, foiled, or fine printed pieces.</li>
-          <li>Use the square chop for engineering and technical documents.</li>
-          <li>Default to the favicon form below ~48px.</li>
-        </ul>
-      </div>
-      <div class="rule dont">
-        <div class="h">Don't</div>
-        <ul>
-          <li>Don't recolor the mark outside the palette.</li>
-          <li>Don't add a year or date to the seal.</li>
-          <li>Don't stretch, skew, or rotate the mark.</li>
-          <li>Don't place the full seal below 64px — it fills in.</li>
-          <li>Don't pair with any non-Latin type in the system.</li>
-        </ul>
+  <div class="meaning">
+    <div class="meaning-body">
+      <p>The mark is a single letter <strong>G</strong> — built with compass geometry, but finished with soft, humanist terminals. Drawn, not stamped out by a machine.</p>
+      <p>Inside it sits a structural cross: a horizontal beam — the letter's own bar — meeting a vertical support, locked at the center by a single <strong>rivet</strong>. That rivet is the load-bearing point. It is where the name lives.</p>
+      <p class="han">铁 — iron, steel.<br>靖 — steady, secure, at peace.</p>
+      <p>Iron that holds steady under load. A founder's mark that can grow, in time, into a family seal. No year is engraved — the seal is meant to outlast any single date.</p>
+      <div class="positioning">
+        <div class="pos-tag">PRECISION</div><div class="pos-tag">STRUCTURE</div>
+        <div class="pos-tag">CONTINUITY</div><div class="pos-tag">AUTHORITY</div>
       </div>
     </div>
+    <div class="meaning-seal">
+      <svg viewBox="0 0 400 400" width="400" height="400"><use href="#seal-copper"/></svg>
+    </div>
   </div>
 </section>
 
-<footer>
-  <div class="wrap">
-    <div class="mono">GONG&nbsp;TIEJING · PERSONAL VI · v1.0</div>
-    <div>Private identity system · <a href="https://github.com/enxpower/gong-vi">enxpower/gong-vi</a></div>
+<!-- ============ 02 MARKS ============ -->
+<section class="sec dark" id="marks">
+  <div class="sec-head">
+    <span class="sec-no">02</span><h2>The Marks</h2>
+    <span class="sec-en">PRIMARY SEAL · SECONDARY CHOP · FAVICON</span>
+  </div>
+
+  <div class="logo-grid">
+    <div class="logo-cell wide">
+      <div class="logo-lockup horizontal">
+        <svg viewBox="0 0 400 400" width="120" height="120"><use href="#seal-copper"/></svg>
+        <div class="lk-text">
+          <span class="lk-word">Primary Seal</span>
+          <span class="lk-tag">CIRCULAR · FORMAL · FAVICON SOURCE</span>
+        </div>
+      </div>
+      <span class="logo-label">SIGNATURES · OFFICIAL DOCUMENTS · APP ICON</span>
+    </div>
+    <div class="logo-cell light-bg">
+      <div class="logo-lockup">
+        <svg viewBox="0 0 400 400" width="118" height="118" style="color:#1C2024"><use href="#chop"/></svg>
+      </div>
+      <span class="logo-label dark">SECONDARY CHOP — TECHNICAL DOCUMENTS</span>
+    </div>
+    <div class="logo-cell">
+      <div class="logo-lockup">
+        <div class="fav-tile"><svg viewBox="0 0 64 64" width="56" height="56" style="color:#FDFCFA"><use href="#icon"/></svg></div>
+      </div>
+      <span class="logo-label">APP / FAVICON — REDUCED, 16PX LEGIBLE</span>
+    </div>
+  </div>
+
+  <!-- usage rules -->
+  <div class="usage">
+    <div class="usage-card">
+      <h4>CLEAR SPACE</h4>
+      <div class="clearspace">
+        <div class="cs-box"><svg viewBox="0 0 64 64" width="48" height="48" style="color:#FDFCFA"><use href="#icon"/></svg></div>
+      </div>
+      <p>Keep clear space around the mark equal to at least one rivet diameter on every side. Never crowd the seal with competing graphics or text.</p>
+    </div>
+    <div class="usage-card">
+      <h4>MINIMUM SIZE</h4>
+      <div class="minsize">
+        <svg viewBox="0 0 64 64" width="24" height="24" style="color:#FDFCFA"><use href="#icon"/></svg>
+        <span class="ms-note">Favicon form below ~48px · full seal at 64px and up</span>
+      </div>
+      <p>Below ~64px the engraved ring text and outer rings fill in. Use the reduced favicon mark for any small or app-icon context.</p>
+    </div>
+    <div class="usage-card">
+      <h4>MISUSE</h4>
+      <ul class="misuse">
+        <li>Do not recolor the mark outside the palette</li>
+        <li>Do not add a year or date to the seal</li>
+        <li>Do not stretch, skew, or rotate the mark</li>
+        <li>Do not pair with any non-Latin type</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 COLOR ============ -->
+<section class="sec" id="color">
+  <div class="sec-head">
+    <span class="sec-no">03</span><h2>Color System</h2>
+    <span class="sec-en">GRAPHITE FRAME · COPPER LIGHT</span>
+  </div>
+  <div class="swatches">
+    <div class="sw"><div class="sw-chip" style="background:#1C2024"></div><b>Graphite</b><code>#1C2024</code><span>Primary — marks, text, dark grounds</span></div>
+    <div class="sw"><div class="sw-chip" style="background:#2A2F35"></div><b>Graphite 2</b><code>#2A2F35</code><span>Raised surfaces on dark</span></div>
+    <div class="sw"><div class="sw-chip" style="background:#9AA3AB"></div><b>Cool Silver</b><code>#9AA3AB</code><span>Standard secondary — rules, captions, UI</span></div>
+    <div class="sw"><div class="sw-chip" style="background:#C2C9CF"></div><b>Silver Cool 2</b><code>#C2C9CF</code><span>Body text on dark grounds</span></div>
+    <div class="sw"><div class="sw-chip copper" style="background:linear-gradient(135deg,#C77B45,#8A4A23)"></div><b>Copper</b><code>#A8602F</code><span>Warm accent — foil, press, fine detail</span></div>
+    <div class="sw"><div class="sw-chip gold" style="background:#B08D3E"></div><b>Gold — reserved</b><code>#B08D3E</code><span>Highest ceremony, physical objects only</span></div>
+    <div class="sw"><div class="sw-chip" style="background:#FDFCFA;border:1px solid #E2DFDA"></div><b>Paper</b><code>#FDFCFA</code><span>Light ground — documents, web base</span></div>
+    <div class="sw"><div class="sw-chip" style="background:#E2DFDA"></div><b>Hairline</b><code>#E2DFDA</code><span>Dividers, borders on paper</span></div>
+  </div>
+  <div class="color-rules">
+    <p><span class="copper-dot">●</span> Copper is the <strong>warm accent</strong> — reserved for the seal, pressed and printed pieces. Cool silver is the everyday working standard for screens and UI.</p>
+    <p><span class="copper-dot">●</span> Gold is held back further still, for the highest-ceremony physical objects — a future family seal, not a digital element.</p>
+  </div>
+</section>
+
+<!-- ============ 04 TYPOGRAPHY ============ -->
+<section class="sec dark" id="type">
+  <div class="sec-head">
+    <span class="sec-no">04</span><h2>Typography</h2>
+    <span class="sec-en">THREE VOICES · LATIN ONLY</span>
+  </div>
+  <div class="type-grid">
+    <div class="type-spec wide">
+      <span class="ts-role">DISPLAY · SPECTRAL</span>
+      <span class="ts-sample serif">Gong Tiejing — Founder &amp; Systems Architect</span>
+      <span class="ts-meta">Spectral · 500 · used for the name, headlines, and the seal's engraved ring</span>
+    </div>
+    <div class="type-spec wide">
+      <span class="ts-role">BODY · INTER</span>
+      <span class="ts-sample sans">Precision under load. Composed under pressure. The mark reads the same at every size.</span>
+      <span class="ts-meta">Inter · 400–600 · body copy, UI, signatures</span>
+    </div>
+    <div class="type-spec wide">
+      <span class="ts-role">DATA · IBM PLEX MONO</span>
+      <span class="ts-sample mono">SURNAME: GONG&nbsp;&nbsp;GIVEN NAME: TIEJING&nbsp;&nbsp;ID: GT-0001</span>
+      <span class="ts-meta">IBM Plex Mono · labels, captions, technical annotation</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 LOCKUPS ============ -->
+<section class="sec" id="lockups">
+  <div class="sec-head">
+    <span class="sec-no">05</span><h2>Lockups</h2>
+    <span class="sec-en">MARK WITH NAME</span>
+  </div>
+  <p class="sec-note">The mark stands alone for icons and seals. When paired with the name, hold the spacing fixed: clear space equal to the rivet diameter on all sides. Name set in the display serif; identity line in mono.</p>
+  <div class="lockup-grid">
+    <div class="lock light">
+      <svg viewBox="0 0 64 64" width="56" height="56" style="color:#1C2024"><use href="#icon"/></svg>
+      <div class="lk-block">
+        <span class="lk-name">Gong Tiejing</span>
+        <span class="lk-sub">FOUNDER &amp; SYSTEMS ARCHITECT</span>
+      </div>
+    </div>
+    <div class="lock dark">
+      <svg viewBox="0 0 64 64" width="56" height="56" style="color:#FDFCFA"><use href="#icon"/></svg>
+      <div class="lk-block">
+        <span class="lk-name">Gong Tiejing</span>
+        <span class="lk-sub copper">FOUNDER &amp; SYSTEMS ARCHITECT</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 APPLICATIONS ============ -->
+<section class="sec dark" id="applications">
+  <div class="sec-head">
+    <span class="sec-no">06</span><h2>Applications</h2>
+    <span class="sec-en">SOCIAL · EMAIL · PRINT</span>
+  </div>
+
+  <!-- avatars -->
+  <h3 class="app-sub">Social Avatars — circle-safe, 512×512</h3>
+  <div class="avatar-row">
+    <div class="avatar-cell">
+      <div class="avatar-circle dark"><svg viewBox="0 0 512 512" width="512" height="512"><use href="#avatar-graphite"/></svg></div>
+      <span>Graphite — default (LinkedIn, GitHub)</span>
+    </div>
+    <div class="avatar-cell">
+      <div class="avatar-circle dark"><svg viewBox="0 0 512 512" width="512" height="512"><use href="#avatar-copper"/></svg></div>
+      <span>Copper — high-warmth contexts</span>
+    </div>
+    <div class="avatar-cell">
+      <div class="avatar-circle light"><svg viewBox="0 0 512 512" width="512" height="512"><use href="#avatar-paper"/></svg></div>
+      <span>Light — on dark UI chrome</span>
+    </div>
+  </div>
+
+  <!-- email signature -->
+  <h3 class="app-sub">Email Signature — Gmail / Outlook</h3>
+  <div class="app-panel">
+    <div class="sig-preview">
+      <div class="sig-icon"><svg viewBox="0 0 64 64" width="60" height="60" style="color:#FDFCFA"><use href="#icon"/></svg></div>
+      <div class="sig-divider"></div>
+      <div class="sig-text">
+        <span class="sig-name">Gong Tiejing</span>
+        <span class="sig-role">FOUNDER &amp; SYSTEMS ARCHITECT</span>
+        <span class="sig-co">AGI&amp;M Assets Inc. &nbsp;|&nbsp; EnergizeOS &nbsp;|&nbsp; ARCBOS</span>
+        <span class="sig-mail">andy.gong@agim.ca &nbsp;·&nbsp; andy.gong@energizeos.com</span>
+      </div>
+    </div>
+    <a class="app-link" href="extensions/email-signature.html">View source / install instructions →</a>
+  </div>
+
+  <!-- business card -->
+  <h3 class="app-sub">Business Card — 89 × 51&nbsp;mm print</h3>
+  <div class="app-panel">
+    <div class="card-row">
+      <div class="bcard front">
+        <svg class="bcard-seal" viewBox="0 0 400 400" width="400" height="400"><use href="#seal-copper"/></svg>
+        <div class="bcard-name">
+          <span class="bc-name">Gong Tiejing</span>
+          <span class="bc-role">FOUNDER &amp; SYSTEMS ARCHITECT</span>
+          <span class="bc-co">AGI&amp;M Assets Inc.<br>EnergizeOS&nbsp;/&nbsp;ARCBOS</span>
+        </div>
+        <div class="bcard-line"></div>
+        <div class="bcard-contact">andy.gong@agim.ca<br>andy.gong@energizeos.com</div>
+      </div>
+      <div class="bcard back">
+        <div class="bcard-name dark">
+          <span class="bc-name">Gong Tiejing</span>
+          <span class="bc-role muted">PERSONAL SEAL</span>
+        </div>
+        <svg class="bcard-chop" viewBox="0 0 400 400" style="color:#1C2024" width="400" height="400"><use href="#chop"/></svg>
+        <div class="bcard-hr"></div>
+        <div class="bcard-grid">
+          <div><span class="bg-lbl">SURNAME</span> Gong</div>
+          <div><span class="bg-lbl">GIVEN NAME</span> Tiejing</div>
+        </div>
+      </div>
+    </div>
+    <a class="app-link" href="extensions/business-card.html">View full print specification →</a>
+  </div>
+</section>
+
+<!-- ============ 07 ASSETS ============ -->
+<section class="sec" id="assets">
+  <div class="sec-head">
+    <span class="sec-no">07</span><h2>Brand Assets</h2>
+    <span class="sec-en">DOWNLOADABLE SVG</span>
+  </div>
+  <div class="asset-grid">
+    <a class="asset" href="assets/mark-primary-seal.svg" download>
+      <svg viewBox="0 0 400 400" width="40" height="40"><use href="#seal-graphite"/></svg>
+      <b>Primary Seal</b><code>mark-primary-seal.svg</code>
+    </a>
+    <a class="asset" href="assets/mark-primary-seal-copper.svg" download>
+      <svg viewBox="0 0 400 400" width="40" height="40" style="background:#1C2024;border-radius:50%"><use href="#seal-copper"/></svg>
+      <b>Primary Seal — Copper</b><code>mark-primary-seal-copper.svg</code>
+    </a>
+    <a class="asset light" href="assets/mark-secondary-chop.svg" download>
+      <svg viewBox="0 0 400 400" width="40" height="40" style="color:#1C2024"><use href="#chop"/></svg>
+      <b>Secondary Chop</b><code>mark-secondary-chop.svg</code>
+    </a>
+    <a class="asset" href="assets/favicon.svg" download>
+      <span class="fav-tile sm"><svg viewBox="0 0 64 64" width="22" height="22" style="color:#FDFCFA"><use href="#icon"/></svg></span>
+      <b>Favicon</b><code>favicon.svg</code>
+    </a>
+    <a class="asset" href="assets/avatar/avatar-graphite.svg" download>
+      <svg viewBox="0 0 512 512" width="40" height="40" style="border-radius:50%"><use href="#avatar-graphite"/></svg>
+      <b>Avatar — Graphite</b><code>avatar-graphite.svg</code>
+    </a>
+    <a class="asset" href="assets/avatar/avatar-copper.svg" download>
+      <svg viewBox="0 0 512 512" width="40" height="40" style="border-radius:50%"><use href="#avatar-copper"/></svg>
+      <b>Avatar — Copper</b><code>avatar-copper.svg</code>
+    </a>
+    <a class="asset light" href="assets/avatar/avatar-paper.svg" download>
+      <svg viewBox="0 0 512 512" width="40" height="40" style="border-radius:50%;border:1px solid #E2DFDA"><use href="#avatar-paper"/></svg>
+      <b>Avatar — Light</b><code>avatar-paper.svg</code>
+    </a>
+    <a class="asset" href="extensions/email-signature.html">
+      <span class="lk-word" style="font-size:13px">Aa</span>
+      <b>Email Signature</b><code>extensions/email-signature.html</code>
+    </a>
+    <a class="asset" href="extensions/business-card.html">
+      <span class="lk-word" style="font-size:13px">▭</span>
+      <b>Business Card</b><code>extensions/business-card.html</code>
+    </a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <svg viewBox="0 0 64 64" width="32" height="32" style="color:#FDFCFA"><use href="#icon"/></svg>
+      <div><span class="lk-word">Gong Tiejing</span><span class="footer-tag">FOUNDER &amp; SYSTEMS ARCHITECT</span></div>
+    </div>
+    <p class="footer-mean">铁 · 靖 — iron that holds steady under load.</p>
+  </div>
+  <div class="footer-legal">
+    <p>Private identity system. Surname Gong, given name Tiejing — formatted per personal name order, matching passport machine-readable zone for travel documents.</p>
+    <p class="footer-meta">PERSONAL VI v1.0 · github.com/enxpower/gong-vi</p>
   </div>
 </footer>
 
