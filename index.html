@@ -108,6 +108,25 @@
     <circle cx="40" cy="24" r="34" fill="#FDFCFA"/>
     <circle cx="40" cy="24" r="34" fill="none" stroke="#1C2024" stroke-width="8"/>
   </g></symbol>
+    <symbol id="wechat-av" viewBox="0 0 512 512"><defs>
+    <radialGradient id="wbg" cx="42%" cy="36%" r="72%">
+      <stop offset="0" stop-color="#242830"/><stop offset="1" stop-color="#121518"/>
+    </radialGradient>
+    <linearGradient id="wcu" x1="0.1" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#D28040"/><stop offset="0.5" stop-color="#A8602F"/><stop offset="1" stop-color="#7C4222"/>
+    </linearGradient>
+  </defs>
+  <circle cx="256" cy="256" r="256" fill="url(#wbg)"/>
+  <circle cx="256" cy="256" r="243" fill="none" stroke="url(#wcu)" stroke-width="4.5"/>
+  <g transform="translate(244,252)">
+    <path d="M 81,-68 A 106,106 0 1 0 81,68" stroke="url(#wcu)" stroke-width="28" fill="none" stroke-linecap="round"/>
+    <path d="M 100,12 L -18,12" stroke="url(#wcu)" stroke-width="28" fill="none" stroke-linecap="round"/>
+    <path d="M 52,-30 L 52,-18" stroke="url(#wcu)" stroke-width="18" fill="none" stroke-linecap="round"/>
+    <path d="M 52,42 L 52,58" stroke="url(#wcu)" stroke-width="18" fill="none" stroke-linecap="round"/>
+    <circle cx="52" cy="12" r="32" fill="#121518"/>
+    <circle cx="52" cy="12" r="32" fill="none" stroke="url(#wcu)" stroke-width="7"/>
+    <circle cx="52" cy="12" r="11" fill="url(#wcu)"/>
+  </g></symbol>
     <symbol id="seal-foil" viewBox="0 0 400 400"><defs>
     <path id="tFoil" d="M 200,200 m -148,0 a 148,148 0 1 1 296,0" />
   </defs>
@@ -161,7 +180,8 @@
     <svg viewBox="0 0 400 400" width="400" height="400"><use href="#seal-copper"/></svg>
   </div>
 </section>
-<!-- ============ 01 IDENTITY / THE IRON ============ -->
+
+<!-- ============ 01 IDENTITY ============ -->
 <section class="sec" id="identity">
   <div class="sec-head">
     <span class="sec-no">01</span><h2>The Idea</h2>
@@ -190,7 +210,6 @@
     <span class="sec-no">02</span><h2>The Marks</h2>
     <span class="sec-en">PRIMARY SEAL · SECONDARY CHOP · FAVICON</span>
   </div>
-
   <div class="logo-grid">
     <div class="logo-cell wide">
       <div class="logo-lockup horizontal">
@@ -215,14 +234,10 @@
       <span class="logo-label">APP / FAVICON — REDUCED, 16PX LEGIBLE</span>
     </div>
   </div>
-
-  <!-- usage rules -->
   <div class="usage">
     <div class="usage-card">
       <h4>CLEAR SPACE</h4>
-      <div class="clearspace">
-        <div class="cs-box"><svg viewBox="0 0 64 64" width="48" height="48" style="color:#FDFCFA"><use href="#icon"/></svg></div>
-      </div>
+      <div class="clearspace"><div class="cs-box"><svg viewBox="0 0 64 64" width="48" height="48" style="color:#FDFCFA"><use href="#icon"/></svg></div></div>
       <p>Keep clear space around the mark equal to at least one rivet diameter on every side. Never crowd the seal with competing graphics or text.</p>
     </div>
     <div class="usage-card">
@@ -302,17 +317,11 @@
   <div class="lockup-grid">
     <div class="lock light">
       <svg viewBox="0 0 64 64" width="56" height="56" style="color:#1C2024"><use href="#icon"/></svg>
-      <div class="lk-block">
-        <span class="lk-name">Gong Tiejing</span>
-        <span class="lk-sub">FOUNDER &amp; SYSTEMS ARCHITECT</span>
-      </div>
+      <div class="lk-block"><span class="lk-name">Gong Tiejing</span><span class="lk-sub">FOUNDER &amp; SYSTEMS ARCHITECT</span></div>
     </div>
     <div class="lock dark">
       <svg viewBox="0 0 64 64" width="56" height="56" style="color:#FDFCFA"><use href="#icon"/></svg>
-      <div class="lk-block">
-        <span class="lk-name">Gong Tiejing</span>
-        <span class="lk-sub copper">FOUNDER &amp; SYSTEMS ARCHITECT</span>
-      </div>
+      <div class="lk-block"><span class="lk-name">Gong Tiejing</span><span class="lk-sub copper">FOUNDER &amp; SYSTEMS ARCHITECT</span></div>
     </div>
   </div>
 </section>
@@ -321,10 +330,10 @@
 <section class="sec dark" id="applications">
   <div class="sec-head">
     <span class="sec-no">06</span><h2>Applications</h2>
-    <span class="sec-en">SOCIAL · EMAIL · PRINT</span>
+    <span class="sec-en">SOCIAL · WECHAT · EMAIL · PRINT</span>
   </div>
 
-  <!-- avatars -->
+  <!-- social avatars -->
   <h3 class="app-sub">Social Avatars — circle-safe, 512×512</h3>
   <div class="avatar-row">
     <div class="avatar-cell">
@@ -339,6 +348,30 @@
       <div class="avatar-circle light"><svg viewBox="0 0 512 512" width="512" height="512"><use href="#avatar-paper"/></svg></div>
       <span>Light — on dark UI chrome</span>
     </div>
+  </div>
+
+  <!-- WeChat avatar -->
+  <h3 class="app-sub">WeChat Avatar — 512×512 · copper G on graphite</h3>
+  <div class="app-panel wc-panel">
+    <div class="wc-demo">
+      <div class="wc-stage">
+        <div class="wc-circle">
+          <svg viewBox="0 0 512 512" width="512" height="512"><use href="#wechat-av"/></svg>
+        </div>
+        <div class="wc-mock">
+          <div class="wc-row">
+            <div class="wc-thumb"><svg viewBox="0 0 512 512" width="512" height="512"><use href="#wechat-av"/></svg></div>
+            <div class="wc-bubble">龚铁靖 | ANDY GONG<span>这是VI换头像后的聊天列表效果</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="wc-notes">
+        <div class="wc-note"><span class="wc-lbl">设计逻辑</span>铜色G置于深石墨底，铆点作为视觉锚，单精铜边框增加分量感。微信62×62px裁圆后，G弧和铆点均清晰可辨。</div>
+        <div class="wc-note"><span class="wc-lbl">上传方式</span>下载512px PNG → 微信「我」→ 头像 → 从相册选择 → 微信自动裁圆。</div>
+        <div class="wc-note"><span class="wc-lbl">不同于avatar系列</span>此版G更大、开口更宽、铆点更重，专门针对微信小尺寸展示优化，不与社交头像互换。</div>
+      </div>
+    </div>
+    <a class="app-link" href="assets/avatar/wechat-avatar.svg" download>Download SVG source →</a>
   </div>
 
   <!-- email signature -->
@@ -394,7 +427,7 @@
     <span class="sec-no">07</span><h2>Brand Assets</h2>
     <span class="sec-en">DOWNLOADABLE SVG · PRODUCTION-READY</span>
   </div>
-  <p class="sec-note">Screen files use copper as a gradient. The three files below are flat, single-color vectors with no gradients or transparency — built for foil-stamp dies, laser engraving, embroidery digitizing, and one-color offset printing. Hand these directly to a manufacturer.</p>
+  <p class="sec-note">Screen files use copper as a gradient. The three files marked below are flat, single-color vectors — built for foil-stamp dies, laser engraving, embroidery digitizing, and one-color offset printing. Hand these directly to a manufacturer.</p>
   <div class="asset-grid">
     <a class="asset" href="assets/mark-primary-seal.svg" download>
       <svg viewBox="0 0 400 400" width="40" height="40"><use href="#seal-graphite"/></svg>
@@ -439,6 +472,11 @@
       <svg viewBox="0 0 512 512" width="40" height="40" style="border-radius:50%;border:1px solid #E2DFDA"><use href="#avatar-paper"/></svg>
       <b>Avatar — Light</b><code>avatar-paper.svg</code>
     </a>
+    <a class="asset mfg" href="assets/avatar/wechat-avatar.svg" download>
+      <div class="wc-thumb-sm"><svg viewBox="0 0 512 512" width="40" height="40"><use href="#wechat-av"/></svg></div>
+      <b>WeChat Avatar</b><code>avatar/wechat-avatar.svg</code>
+      <span class="asset-tag">512×512 · copper G · 微信专用</span>
+    </a>
     <a class="asset" href="extensions/email-signature.html">
       <span class="lk-word" style="font-size:13px">Aa</span>
       <b>Email Signature</b><code>extensions/email-signature.html</code>
@@ -457,10 +495,11 @@
     <div class="spec-row"><span>Secondary chop — line weights</span><span>Frame 7px, 10px corner radius · grid lines 1.5px @ 28% opacity · corner ticks 3px · G stroke 22px · rivet ring 3.2px</span></div>
     <div class="spec-row"><span>Graphite — print match</span><span><code>#1C2024</code> · CMYK ≈ 75 / 60 / 55 / 65 · Pantone Black 6 C (closest)</span></div>
     <div class="spec-row"><span>Copper — print / foil match</span><span><code>#A8602F</code> · CMYK ≈ 25 / 60 / 95 / 15 · Pantone 7586 C · for foil stamping specify <strong>copper foil</strong>, not metallic gold</span></div>
-    <div class="spec-row"><span>Minimum reproduction size</span><span>Primary seal: 12&nbsp;mm diameter (engraved ring text is the limiting element) · Secondary chop: 10&nbsp;mm · Favicon mark: 4&nbsp;mm</span></div>
-    <div class="spec-row"><span>Foil stamping</span><span>Use <code>mark-primary-seal-foil.svg</code> — flat copper, no gradient, no transparency. Convert strokes to outlines before sending to the die-maker; gradients will not stamp.</span></div>
-    <div class="spec-row"><span>Engraving / laser / embroidery</span><span>Use the <code>-outline</code> / <code>-mono</code> files — single pure-black fill, no opacity layers except the chop's 28% grid lines (flatten or omit those for engraving).</span></div>
-    <div class="spec-row"><span>Embroidery digitizing</span><span>Recommend running stitch for the 1.5px grid lines, satin stitch ≥2&nbsp;mm for the G strokes and rings. Minimum hoop size 50&nbsp;mm for full seal.</span></div>
+    <div class="spec-row"><span>Minimum reproduction size</span><span>Primary seal: 12&nbsp;mm diameter · Secondary chop: 10&nbsp;mm · Favicon mark: 4&nbsp;mm</span></div>
+    <div class="spec-row"><span>Foil stamping</span><span>Use <code>mark-primary-seal-foil.svg</code> — flat copper, no gradient. Convert strokes to outlines before sending to die-maker.</span></div>
+    <div class="spec-row"><span>Engraving / laser / embroidery</span><span>Use the <code>-outline</code> / <code>-mono</code> files — single pure-black fill. Flatten or omit the chop's 28% grid lines for engraving.</span></div>
+    <div class="spec-row"><span>Embroidery digitizing</span><span>Running stitch for 1.5px grid lines, satin stitch ≥2&nbsp;mm for G strokes and rings. Minimum hoop 50&nbsp;mm for full seal.</span></div>
+    <div class="spec-row"><span>WeChat avatar</span><span>Upload <code>wechat-avatar.svg</code> or the 512px PNG to WeChat → 我 → 头像 → 从相册选择. WeChat applies the circular crop automatically. Do not pre-crop.</span></div>
   </div>
 </section>
 
